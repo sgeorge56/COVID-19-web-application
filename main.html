@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+    </script>
+</head>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:100px}
+.triangle-down {
+    position: absolute;
+    right: 2%;
+    top:150%;
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #555;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="{{ url_for('startpage') }}"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Prediction Analysis</a>
+    <a href="{{ url_for('classification_link') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Classification Analysis</a>
+    <a href="{{ url_for('test_link') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">TSNE Algorithm </a>
+    <a href="{{ url_for('diabetes_classification_link') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Diabetes Classification</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="{{ url_for('startpage') }}" class="w3-bar-item w3-button w3-padding-large">COVID 19 Prediction Analysis</a>
+    <a href="{{ url_for('classification_link') }}" class="w3-bar-item w3-button w3-padding-large">Covid 19 Classification Analysis</a>
+    <a href="{{ url_for('test_link') }}" class="w3-bar-item w3-button w3-padding-large">TSNE Algorithm </a>
+    <a href="{{ url_for('diabetes_classification_link') }}" class="w3-bar-item w3-button w3-padding-large">Diabetes Classification</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-light green w3-center" style="padding:70px 16px">
+  <img src = "static/Coronavirus.jpg" width = "250px" height = "200px">
+    <h1 class="w3-margin w3-jumbo">CATALYST</h1>
+  <a class="w3-button w3-black w3-padding-large w3-large w3-margin-top" href = "#information">Get Started</a>
+</header>
+
+<!-- First Grid -->
+<div id = "information" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Capability</h1>
+      <h5 class="w3-padding-32">This web application is capable of analysing Available datasets on COVID 19 and cleans the data, transforms and also applies a slicing algorithm for dividing the data set into a training and testing sets. These sets are then fed into a machine learning algorithm to magnify trends in the virus trends.</h5>
+
+      <p class="w3-text-grey">The Program is based on a deep learning neural network which is able to learn trends in the dataset and lay down the foundations for prediction and classification analysis which is showcased through this program.
+      </p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-bar-chart w3-padding-64 w3-text-red" style="font-size:150px;"></i>
+    </div>
+      <a class="triangle-down" href = "#secondaryinfo" ></a>
+  </div>
+</div>
+
+
+
+<!-- Second Grid -->
+<div id = "secondaryinfo" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-bed w3-padding-64 w3-text-red w3-margin-right" style="font-size:130px;"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Diagnosis spectrum of COVID-19</h1>
+      <h5 class="w3-padding-32"></h5>
+
+      <p class="w3-text-grey">This program will allow medical specialists to detect whether a person has coronavirus using classification analysis using DNN. The application incorporates another model for modelling the number of deaths which are predicted based on current death rate of another country.
+      The Map functionality shows the spread of the virus across various countries and shows what genome length and which strain is most prevalent across the countries. The minimum and maximum age of infection is also found using this algorithm. The diabetes classification DNN is capable of detection of diabetes based on various core morbidity factors.</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the day: “Knowing too much of your future is never a good thing.”
+― Rick Riordan, The Lightning Thief </h1>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">AI</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
